@@ -1,0 +1,253 @@
+:root {
+    --primary-bg: #ffffff;
+    --secondary-bg: #f1f1f1;
+    --card-bg: #ffffff;
+    --card-border-color-1: rgb(13, 196, 252);
+    --card-border-color-2: rgb(255, 201, 22);
+    --card-border-color-3: rgb(109, 252, 13);
+    --btn-add-bg: green;
+    --btn-add-hover-bg: #00681a;
+    --btn-update-bg: rgb(5, 164, 185);
+    --btn-update-hover-bg: #018791;
+    --table-header-bg: #353535;
+    --table-header-color: #ffffff;
+    --table-row-bg: #ffffff;
+    --table-body-bg: rgb(241, 241, 241);
+    --table-border: #a0a0a0;
+    --table-cell-border: #cccccc;
+    --popup-bg: #fff;
+    --popup-overlay: rgba(0, 0, 0, 0.5);
+    --popup-shadow: rgb(187, 187, 187);
+    --scrollbar-thumb: #919191;
+    --scrollbar-thumb-hover: #555;
+}
+
+body {
+    font-family: 'Lucida Sans', Verdana, sans-serif;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-bg);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+#navbar {
+    padding-left: 125px;
+    background-color: var(--primary-bg);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+h3 {
+    text-align: center;
+    user-select: none;
+    color: #3b3b3b;
+}
+
+.dashboard {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 70px;
+}
+
+/* top products card style */
+
+#cards-btns {
+    background-color: rgb(247, 247, 247);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgb(228, 228, 228);
+}
+
+.cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.card {
+    user-select: none;
+    font-size: larger;
+    font-weight: 700;
+    color: #3b3b3b;
+    width: 200px;
+    padding: 40px 20px;
+    background: var(--card-bg);
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 2px 2px 7px rgb(241, 241, 241);
+}
+
+#card-1 {
+    border-left: 6px solid var(--card-border-color-1);
+}
+
+#card-2 {
+    border-left: 6px solid var(--card-border-color-2);
+}
+
+#card-3 {
+    border-left: 6px solid var(--card-border-color-3);
+}
+
+#buttons {
+    text-align: center;
+}
+
+button {
+    width: 200px;
+    margin-right: 10px;
+    padding: 18px 0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;    
+}
+
+.add-btn {
+    background-color: var(--btn-add-bg);
+    
+}
+
+.add-btn:hover {
+    background: var(--btn-add-hover-bg);
+}
+
+.update-btn {
+    background-color: var(--btn-update-bg);
+}
+
+.update-btn:hover {
+    background: var(--btn-update-hover-bg);
+}
+
+.chart-container {
+    margin: 40px 0;
+    background-color: var(--primary-bg);
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 10px var(--popup-shadow);
+}
+
+/* recipient table style */
+
+.table-container {
+    margin-bottom: 50px;
+    box-shadow: 2px 2px 10px rgb(236, 236, 236);
+}
+
+#recipientTable {
+    user-select: none;
+    margin-top: 50px;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid var(--table-border);
+}
+
+#recipientTable th, #recipientTable td {
+    border-right: 1px solid var(--table-cell-border);
+    text-align: left;
+    padding: 15px 8px;
+}
+
+#recipientTable td:last-child,
+#recipientTable th:last-child {
+    border-right: none;
+}
+
+#recipientTable th {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-color);
+    font-weight: 700;
+}
+
+#recipientTable tbody {
+    background-color: var(--table-body-bg);
+    display: block;
+    max-height: 240px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#recipientTable thead, #recipientTable tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+#recipientTable tbody tr:nth-child(even) {
+    background-color: var(--table-row-bg);
+}
+
+/* popup form style */
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--popup-overlay);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: var(--popup-bg);
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+    position: relative;
+}
+
+.popup-content h2 {
+    text-align: center;
+}
+
+.popup-content form {
+    display: grid;
+}
+
+.popup-content form input {
+    padding: 5px 0;
+    margin: 4px 0 10px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: red;
+    cursor: pointer;
+}
+
+/* webkit scrollbar styles */
+
+#recipientTable tbody::-webkit-scrollbar {
+    width: 7px;
+}
+
+#recipientTable tbody::-webkit-scrollbar-track {
+    background: var(--primary-bg);
+}
+
+#recipientTable tbody::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 3px;
+}
+
+#recipientTable tbody::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}

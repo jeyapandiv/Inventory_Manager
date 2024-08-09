@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory Management Dashboard</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <div id="navbar">
+        <i class="fa-regular fa-clipboard fa-2xl" style="color: #454545"></i>
+        <h3>DCKAP Palii Inventory</h3>
+      </div>
+    </header>
+    <div class="dashboard">
+        <h2>Dashboard</h2>
+      <div id="cards-btns">
+        <div class="cards">
+          <div class="card" id="card-1">Product 1</div>
+          <div class="card" id="card-2">Product 2</div>
+          <div class="card" id="card-3">Product 3</div>
+        </div>
+        <div id="buttons">
+          <button onclick="showPopup('add-popup')" class="add-btn">Add Product</button>
+          <button onclick="showPopup('update-popup')" class="update-btn">
+            Update Inventory
+          </button>
+        </div>
+      </div>
+
+      <div class="chart-container">
+        <h3>Inventory Status</h3>
+        <canvas id="inventoryChart"></canvas>
+      </div>
+      <div class="table-container">
+        <table id="recipientTable">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Recipient</th>
+              <th>Quantity</th>
+              <th>Updated On</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- add product popup -->
+    <div class="popup" id="add-popup">
+      <div class="popup-content">
+        <span class="close" onclick="closePopup('add-popup')">&times;</span>
+        <h2>Add Product</h2>
+        <form onsubmit="addProduct(event)" method="post">
+          <label for="add-product-name">Product Name:</label>
+          <input
+            type="text"
+            id="add-product-name"
+            name="productName"
+            required
+          />
+          <label for="add-quantity">Quantity:</label>
+          <input type="number" id="add-quantity" name="quantity" required />
+          <button type="submit" class="add-btn">Add Product</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- update inventory popup -->
+    <div class="popup" id="update-popup">
+      <div class="popup-content">
+        <span class="close" onclick="closePopup('update-popup')">&times;</span>
+        <h2>Update Inventory</h2>
+        <form onsubmit="updateInventory(event)" method="post">
+          <label for="update-product-name">Product Name:</label>
+          <input type="text" id="update-product-name" name="product" required />
+          <label for="update-quantity">Quantity:</label>
+          <input type="number" id="update-quantity" name="quantity" required />
+          <label for="update-recipient">Recipient:</label>
+          <input type="text" id="update-recipient" name="recipient" required />
+          <button type="submit" class="update-btn">Update Inventory</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
